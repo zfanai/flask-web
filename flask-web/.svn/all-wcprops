@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/fancy/!svn/ver/64/flask-web
+END
+db_create.py
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/fancy/!svn/ver/63/flask-web/db_create.py
+END
+temp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/fancy/!svn/ver/63/flask-web/temp.txt
+END
+db_migrate.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/fancy/!svn/ver/63/flask-web/db_migrate.py
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/fancy/!svn/ver/63/flask-web/.project
+END
+run.py
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/fancy/!svn/ver/63/flask-web/run.py
+END
+项目文档.docx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/fancy/!svn/ver/63/flask-web/%E9%A1%B9%E7%9B%AE%E6%96%87%E6%A1%A3.docx
+END
+config.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/fancy/!svn/ver/63/flask-web/config.py
+END
+.pydevproject
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/fancy/!svn/ver/63/flask-web/.pydevproject
+END
+server.key
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/fancy/!svn/ver/63/flask-web/server.key
+END
+server.crt
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/fancy/!svn/ver/63/flask-web/server.crt
+END
+runcmd.bat
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/fancy/!svn/ver/63/flask-web/runcmd.bat
+END

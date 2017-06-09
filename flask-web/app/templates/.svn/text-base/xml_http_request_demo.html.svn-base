@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>xml-http-request-demo</p>
+
+<script src="static/jquery/jquery-1.10.2.js"></script>
+<style type='text/css'>
+</style>
+
+<input type='button' value='开始' name='start_btn'>
+
+<script type='text/javascript'>
+
+(function(w,$){
+
+    
+    $(document).ready(function(){
+        $('input[name=start_btn]').click(function(){
+            var xhr=new XMLHttpRequest();
+            
+        })    
+    })
+    
+})(window, jQuery)
+
+</script>
+
+{% endblock %}

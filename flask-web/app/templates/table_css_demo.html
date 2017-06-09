@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Table  CSS Demo</h1>
+
+<script src="static/jquery/jquery-1.10.2.js"></script>
+    
+    {# 
+    1. 如果设置了table的宽度， td的宽度设置是不起作用的 
+    2. 如果没有设置table的宽度， td的宽度会生效， 但是td的宽度单位不能为cm
+#}
+<style type='text/css'>
+#test_tbl{
+    border: solid 1px;
+    background-color: #4cae4c;
+    opacity:0.6;
+    *width:10cm;
+    width:100%
+}
+
+#test_tbl td{
+    border: solid 1px;
+    *width:200px;
+    *witdh:2cm;
+}
+
+#tbl_wrap{
+    *background-color: #1b6d85;
+    *width:800px;
+    width:25cm;
+    height:200px;
+    opacity: 0.6
+}
+</style>
+
+{#  
+1. div没有width属性和height属性， 设置了是不起作用的。
+2. background-color设置颜色时， 如果用#331形式的颜色码， 不能设置透明度。如果要设置透明度可以用rgba(1,1,1,1)形式的颜色表示方法。
+   也可以用opacity属性来设置透明度。
+3. opacity属性会继承   
+4. 子元素的透明度等于父元素的透明度乘以子元素的透明度， 所以子元素的透明度不会大于父元素的透明度。
+#}    
+    
+<div width="200px" height="200px" id='tbl_wrap' style="">
+    <table id="test_tbl" style="">
+    <tr>
+        {# 1. td元素有width属性，但是还是推荐时间style样式表来设置width  
+        2. 表格的td的宽度要符合一个内在的规则就是，td的宽度需要填满table,所以如果没有设置table的宽度，
+        td各自可以设置宽度，table的宽度由各个td的宽度加起来。td只能设置像素宽度，设置cm单位宽度无效。谷歌浏览器是的。
+        3. 如果table设置了宽度，td的宽度，如果设置了宽度，设置了宽度的td之间按比例划分宽度，如果还有剩余宽度和剩余td, 剩余td平分剩余宽度。
+        4. 如果table没有设置宽度， td设置的百分比宽度， 内在逻辑未知。
+        5. 总结：确定table的宽度， td的宽度根据百分比来划分。
+#}
+        <td width="20%">11</td>
+        <td width="20%">22&le;&gt;</td>
+    </tr>
+    </table>
+</div>
+
+<script type='text/javascript'>
+
+(function(w,$){
+
+    
+    $(document).ready(function(){
+        $('input[name=start_btn]').click(function(){
+            var xhr=new XMLHttpRequest();
+            
+        })    
+    })
+    
+})(window, jQuery)
+
+</script>
+
+{% endblock %}

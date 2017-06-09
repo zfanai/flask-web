@@ -1,0 +1,109 @@
+ {% extends 'base.html' %}
+ {% block content %}
+ <p>index</p>
+<style type='text/css'>
+.wp{
+    width:400px;
+}
+.zf-row{
+    float:left;
+}
+.w300{width:300px}
+.w30{width:30px}
+</style>
+<!--  -->
+<div class='wp'>
+<div>
+<div class='zf-row w300'>第1行</div>
+<div class='zf-row w300'>第2行</div>
+</div>
+
+<!-- div的框没有被float元素影响，但是里面的内容(文字)被影响了。文字不能重叠，文字漂浮了。 
+如果这个元素之前加上clear属性，上一个div框就可以撑起来。
+-->
+<div>float后面的块</div>
+</div>
+
+<!-- input是行内元素 -->
+<style type='text/css'>
+.zf-fl{float:left}
+.zf-ml10{margin-left:40px}
+</style>
+
+<div>
+<span>
+<input type='text' class='zf-fl w30'/>
+<input type='text' class='zf-fl w300 zf-ml10'/>
+</span>
+<div style='clear:both'></div>
+</div>
+
+<div>
+<input type="text" class="zf-fl w30 " id='regist_country_code'
+          placeholder="xx" maxlength="5" 
+          name="regist_country_code" />
+          
+<input type="text" class="zf-fl w300  zf-ml10" id='regist_username'
+          placeholder="xx" maxlength="20" 
+          name="regist_username" />
+<div style='clear:both'></div>          
+</div>
+
+<!-- 测试select元素 -->
+<hr/>
+{#
+font-size的单位：    
+  1. px是像素单位, 显示的实际大小跟设备的像素尺寸有关，因此不适合移动设备。
+  2. pt是尺寸单位， 显示设备会根据设备的像素尺寸来计算时间的像素大小，适合印刷和移动设备。 
+  3. 百分比和em在font-size的设置里面是相同的，表示相当大小。
+  4. 但是在其他的一些场合em和百分比的效果是不同的。
+#}     
+<style type="text/css">
+.date_title{
+    *font-size:18px;
+    *font-size:150%;
+    *font-size:14pt;
+    font-size:1.2em;
+    color:#2aabd2;
+    font-weight:700;
+}
+.date_title2{
+    *font-size:18px;
+    *font-size:150%;
+    *font-size:14pt;
+    font-size:2em;
+    color:#2aabd2;
+    font-weight:700;
+}
+.show_border{
+    border:solid 1px;
+}
+
+#inner_wrap{
+    border:solid #2aabd2 1px;
+    float:left;
+}
+
+#inner_wrap div{
+    border:solid 1px;
+    width:100px;
+    float:left;
+}
+
+</style>
+    <p class="date_title">2017-6-7
+    </p>
+    <p>测试float div里面包含float div的情况, <br/>
+    1.如果容器元素是float的，子元素不管是float还是非float都会把它撑大。<br/>
+    2.如果容器元素是非float的，子元素中只有非float的元素才会撑大它。
+    </p>
+    <div id="inner_wrap">
+        <div>11</div>
+        <div>22</div>
+        <p>123</p>
+    </div>
+     
+{#  <p class="date_title2">2017-6-7</p> #}
+
+
+{% endblock %}
