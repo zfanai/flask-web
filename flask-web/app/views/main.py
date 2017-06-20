@@ -2,6 +2,7 @@
 
 from flask import abort
 from flask import Blueprint
+from flask import make_response
 from flask import current_app
 from flask import flash
 from flask import g
@@ -13,6 +14,17 @@ from flask import session
 from flask import url_for
 
 bp = Blueprint('main', __name__)
+
+# 测试前后端分离，跨域访问。
+@bp.route('/login2', methods=['GET', 'POST'])
+def login2():
+    #return 'dfef'
+    response=make_response('dfasfefasdfefasdfef')
+    response.headers['Access-Control-Allow-Origin']='*'
+    response.headers['Access-Control-Allow-Methods'] = 'POST'
+    response.headers['Access-Control-Allow-Headers'] = 'x-request-with,content-type'
+    #print 'headers2:', response.headers
+    return response
 
 @bp.route('/')
 def index():
