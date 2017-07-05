@@ -15,6 +15,10 @@ from flask import url_for
 
 bp = Blueprint('main', __name__)
 
+@bp.route('/xxx')
+def xxx():
+    return 'dfdfff'
+
 # 测试前后端分离，跨域访问。
 @bp.route('/login2', methods=['GET', 'POST'])
 def login2():
@@ -24,10 +28,14 @@ def login2():
     response.headers['Access-Control-Allow-Methods'] = 'POST'
     response.headers['Access-Control-Allow-Headers'] = 'x-request-with,content-type'
     #print 'headers2:', response.headers
+    
     return response
 
 @bp.route('/')
 def index():
+    #for k in dir(request):print 'request:', k
+    print 'host:', request.host
+    print 'host_url:', request.host_url
     return render_template('index.html')
 
 @bp.route('/floatdemo')
@@ -91,4 +99,17 @@ def bootstrap_demo():
 @bp.route('/table_demo', methods=['GET', 'POST'])
 def table_css_demo():
     return render_template('table_css_demo.html')
+
+
+@bp.route('/auto_margin_demo', methods=['GET', 'POST'])
+def auto_margin_demo():
+    return render_template('auto_margin_demo.html')
+
+@bp.route('/font_unit_demo')
+def font_unit_demo():
+    return render_template('font_unit_demo.html')
+
+@bp.route('/pseudo_class_element_demo')
+def pseudo_class_element_demo():
+    return render_template('pseudo_class_element_demo.html')
         

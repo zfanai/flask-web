@@ -7,7 +7,7 @@ from werkzeug.datastructures import Headers
 
 class MyResponse(Response):
     def __init__(self, response=None, **kwargs):
-        print 'dfef'
+        #print 'dfef'
         kwargs['headers'] = ''
         headers = kwargs.get('headers')
         # 跨域控制 
@@ -20,7 +20,7 @@ class MyResponse(Response):
             headers.add(*allow)
         else:
             headers = Headers([origin, methods, allow])
-        print 'headers:', headers, request.method, request.path
+        #print 'headers:', headers, request.method, request.path
         kwargs['headers'] = headers
         return super(MyResponse, self).__init__(response, **kwargs)
     

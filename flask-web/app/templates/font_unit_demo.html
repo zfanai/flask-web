@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Font Unit Demo</h1>
+
+<script src="static/jquery/jquery-1.10.2.js"></script>
+
+    {#
+     1. 行内元素无法auto margin吗。块元素可以auto margin
+     2. div第一个元素的margin会伸到外面去。
+     3. %和em是大部分的情况下是一样的，但是在某些情况下，意义不同。
+    4. 浏览器缩放针对的是固定长度单位的元素。或者说可以算出固定宽度值的元素。
+#}
+    <style type="text/css">
+        body{
+            margin-top:80px;    
+        }
+        
+        /*父元素是相对大小， 设置一个百分比的宽度不起作用*/
+        #font_unit_wrap{
+            #width:400px;
+            #height:200px;
+            #height:264px;
+            #witdh:80%;
+            border:solid 1px #2aabd2;
+        }
+        #font_unit_wrap p.px{
+            font-size:18px;
+        }
+    
+        #font_unit_wrap p.pt{
+            font-size:18pt;
+        }
+    
+        #font_unit_wrap p.em{
+            font-size:2em;
+        }
+    
+        #font_unit_wrap p.percent{
+            font-size:200%;
+        }
+        
+        /*chrome默认的字体大小是16px*/
+        #font_unit_wrap .pb{
+            font-size:16px;
+        }
+        
+    </style>
+    
+    <div>
+    
+    
+    <div id="font_unit_wrap">
+        <p class="pa">123</p>
+        <p class="pb">123</p>
+        <p class="px">123</p>
+        <p class="pt">123</p>
+        <p class="em">123</p>
+        <p class="percent">123</p>
+    </div>
+
+
+<script type='text/javascript'>
+
+(function(w,$){
+
+    
+    $(document).ready(function(){
+        $('input[name=start_btn]').click(function(){
+            var xhr=new XMLHttpRequest();
+            
+        })    
+    })
+    
+})(window, jQuery)
+
+</script>
+
+{% endblock %}

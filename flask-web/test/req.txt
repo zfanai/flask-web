@@ -1,0 +1,7 @@
+GET /xxx HTTP/1.1
+Accept-Encoding: identity
+Host: 192.168.30.26:5000
+Cookie: None
+Connection: close
+User-Agent: Python-urllib/2.7
+
