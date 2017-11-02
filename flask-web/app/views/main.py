@@ -12,6 +12,10 @@ from flask import request
 from flask import send_from_directory
 from flask import session
 from flask import url_for
+from flask import jsonify
+
+from app import cache
+from app.forms.auth import LoginForm
 
 bp = Blueprint('main', __name__)
 
@@ -112,4 +116,43 @@ def font_unit_demo():
 @bp.route('/pseudo_class_element_demo')
 def pseudo_class_element_demo():
     return render_template('pseudo_class_element_demo.html')
-        
+
+@bp.route('/echarts_study')
+def echarts_study():
+    return render_template('echarts_study.html')
+
+@bp.route('/test_cache', methods=['POST', 'GET'])
+def test_cache():
+    cache.set('aa', 123)    
+    return jsonify({
+        'error':0
+    })
+
+@bp.route('/test_cache2', methods=['POST', 'GET'])
+def test_cache2():
+    print cache.get('aa')    
+    return jsonify({
+        'error':0
+    })
+
+@bp.route('/xss_study', methods=['POST', 'GET'])
+def xss_study():
+    if 'GET'==request.method:
+        return render_template('xss_study.html')
+    return render_template('xss_study.html')
+
+
+@bp.route('/wtf_demo', methods=['POST', 'GET'])
+def wtf_demo():
+    if 'GET'==request.method:
+        g.login_form=LoginForm()
+        #print dir(g.login_form)
+        #print 'csrf_token:', g.login_form.csrf_enabled, g.login_form.csrf_token
+        #print 'validate on submit:',  g.login_form.validate_on_submit()
+            
+        return render_template('wtf_demo.html')
+
+    g.login_form = LoginForm()
+    print 'post validate on submit:', g.login_form.validate_on_submit()
+    
+    return render_template('wtf_demo.html')

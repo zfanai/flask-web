@@ -4,6 +4,9 @@ from flask import Flask
 from flask import Response
 from flask import request
 from werkzeug.datastructures import Headers
+from flask_cache import Cache
+from flask_babelex import Babel
+
 
 class MyResponse(Response):
     def __init__(self, response=None, **kwargs):
@@ -23,12 +26,20 @@ class MyResponse(Response):
         #print 'headers:', headers, request.method, request.path
         kwargs['headers'] = headers
         return super(MyResponse, self).__init__(response, **kwargs)
-    
+
+cache = Cache()
+babel = Babel()
+
 def create_app():
     app=Flask(__name__)
     app.response_class=MyResponse
     
     from .views.main import bp as main_bp
     app.register_blueprint(main_bp)
+    app.config.from_pyfile('config.py')
+    
+    #
+    cache.init_app(app)
+    babel.init_app(app)
     
     return app

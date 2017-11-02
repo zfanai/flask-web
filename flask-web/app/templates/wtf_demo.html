@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<p>WTF Study</p>
+
+<script src="static/jquery/jquery-1.10.2.js"></script>
+    
+<style type='text/css'>
+</style>
+
+    <form method="post">
+    {% with form = g.login_form -%}
+        {#  #} {{ form.hidden_tag() }} 
+        <div class="form-group">
+            {{ form.username.label | safe }}
+            {{ form.username(class="form-control", required=True, maxlength="64", placeholder=form.username.description) | safe }}
+        </div>
+        
+            <div class="form-group">
+                                {{ form.password.label | safe }}
+                                {{ form.password(class="form-control", required=True, maxlength="64", placeholder=form.password.description) | safe }}
+                            </div>
+        
+        {{ form.submit(class="btn btn-default btn-block") | safe }}
+    {% endwith %}
+    </form>
+    
+<script type='text/javascript'>
+
+</script>
+
+{% endblock %}

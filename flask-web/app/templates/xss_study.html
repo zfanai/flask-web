@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<p>XSS Study</p>
+
+<script src="static/jquery/jquery-1.10.2.js"></script>
+    
+<style type='text/css'>
+</style>
+    
+    <div>
+        <form method="post">
+            <input type="text"/>
+        </form>
+    </div>
+    
+<script type='text/javascript'>
+
+</script>
+
+{% endblock %}
